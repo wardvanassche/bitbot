@@ -41,7 +41,7 @@ function App() {
                 })
         }
 
-        const response = await fetch("https://bitbot-server.vercel.app/", options)
+        const response = await fetch("http://localhost:3000", options)
 
         if (response.ok) {
             const reader = response.body.getReader();
