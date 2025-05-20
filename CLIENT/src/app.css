@@ -1,0 +1,204 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'system-ui', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111827;
+    color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    font-size: 1.5rem;
+    color: #f9d342;
+    text-shadow: 1px 1px 4px #000;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    height: 5vh;
+    margin-right: 8px;
+}
+
+.chat-container {
+    flex: 1;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #1f2937;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: auto;
+    padding: 0.5rem;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+#input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease;
+    flex-grow: 1;
+    background-color: #1f2937;
+    color: #f9fafb;
+    resize: vertical;
+    overflow-y: auto;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+#input:focus {
+    outline: none;
+}
+
+#btn {
+    min-width: 10%;
+    padding: 0.75rem;
+    background-color: #059669;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn:hover:not(:disabled) {
+     background-color: #047857; /* darker version of #059669 */
+ }
+
+#btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.output-container {
+    padding: 1.5rem;
+    flex-grow: 1;
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    color: #f3f4f6;
+    scroll-behavior: smooth;
+}
+
+/* Styling the scrollbar */
+.output-container::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+.output-container::-webkit-scrollbar-track {
+    background: #1f2937; /* The track's background (same as container) */
+    border-radius: 10px; /* Rounded corners for track */
+}
+
+.output-container::-webkit-scrollbar-thumb {
+    background: #3b3b3b; /* Darker gray for the thumb */
+    border-radius: 10px; /* Rounded corners for thumb */
+}
+
+.output-container::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a; /* Slightly lighter when hovered */
+}
+
+#output {
+    line-height: 1.5;
+    color: #e5e7eb;
+}
+
+.footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    padding: 1rem 0;
+    pointer-events: none; /* ensures no accidental clicks */
+}
+
+/* Tablet screens (<= 1024px) */
+@media (max-width: 1024px) {
+    .chat-container {
+        width: 80vw;
+        height: 75vh;
+        padding: 1.5rem;
+    }
+
+    #btn {
+        min-width: 20%;
+    }
+}
+
+/* Mobile screens (<= 600px) */
+@media (max-width: 600px) {
+    .chat-container {
+        width: 85vw;
+        height: 85vh;
+        padding: 1rem;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #input {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        flex: 1;
+        box-sizing: border-box;
+    }
+
+    #btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .header {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .output-container {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
