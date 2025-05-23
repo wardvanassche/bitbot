@@ -1,5 +1,5 @@
 import {AzureChatOpenAI} from "@langchain/openai"
-import express, {json} from "express"
+import express from "express"
 import cors from "cors"
 import {AIMessage, HumanMessage, SystemMessage} from "@langchain/core/messages"
 import fetch from "node-fetch";
@@ -55,7 +55,7 @@ app.post("/", async (req, res) => {
 
     // Empty array messages for history
     let messages = [
-        new SystemMessage(`You are a Bitcoin and Ethereum expert and assistant. Use this live Bitcoin data to answer the users prompts: ${JSON.stringify(coinWatchData)}. Today's date and time is ${date}. Please use markdown for styling.`)
+        new SystemMessage(`You are a Bitcoin and Ethereum expert and assistant. Use this live Bitcoin and Ethereum data to answer the users prompts: ${JSON.stringify(coinWatchData)}. Today's date and time is ${date}. Please use markdown for styling.`)
     ]
 
     for (const {human, ai} of history) {
